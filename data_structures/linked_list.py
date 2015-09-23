@@ -1,7 +1,10 @@
 class Node(object):
-    def __init__(self, val=None, pointer=None):
+    def __init__(self, val, next=None):
         self.val = val
-        self.pointer = pointer
+        self.next = next
+
+    def __repr__(self):
+        return '{val}'.format(val=self.val)
 
 
 class LinkedList(object):
@@ -9,21 +12,29 @@ class LinkedList(object):
         self.head = head
         self.length = 0
 
+    def __repr__(self):
+        pass
 
-def size(self):
-    pass
+    def __len__(self):
+        pass
 
-def search(self):
-    pass
+    def __iter__(self):
+        pass
 
-def display(self):
-    pass
+    def size(self):
+        pass
 
-def remove(self):
-    pass
+    def search(self):
+        pass
 
-def insert(self):
-    pass
+    def display(self):
+        pass
 
-def pop(self):
-    pass
+    def remove(self):
+        pass
+
+    def insert(self):
+        pass
+
+    def pop(self):
+        pass
