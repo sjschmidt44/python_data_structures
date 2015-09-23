@@ -63,8 +63,8 @@ class LinkedList(object):
         for node in self:
             if node.val == search:
                 return node
-            else:
-                return None
+        else:
+            return None
 
     def remove(self, search):
         '''Remove given node from Linked List, return None.'''
