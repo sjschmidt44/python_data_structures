@@ -38,20 +38,41 @@ class LinkedList(object):
         self._current = self._current.next
         return node
 
-    def insert(self):
-        pass
-
-    def size(self):
-        pass
-
-    def search(self):
-        pass
-
-    def display(self):
-        pass
-
-    def remove(self):
-        pass
+    def insert(self, val):
+        '''Insert new Node at head of Linked List.'''
+        self.head = Node(val, self.head)
+        self.length += 1
+        return None
 
     def pop(self):
-        pass
+        '''Pop the first Node from the head of Linked List, return val'''
+        if self.head is None:
+            raise IndexError
+        else:
+            to_return = self.head
+            self.head = to_return.next
+            self.length -= 1
+            return to_return.val
+
+    def size(self):
+        '''Return current length of Linked List.'''
+        return len(self)
+
+    def search(self, search):
+        '''Return given node of Linked List if present, else None.'''
+        for node in self:
+            if node.val == search:
+                return node
+            else:
+                return None
+
+    def remove(self, search):
+        '''Remove given node from Linked List, return None.'''
+        for node in self:
+            if node.next == search:
+                node.next = node.next.next
+                return None
+
+    def display(self):
+        '''Display Linked List as string.'''
+        return repr(self)
