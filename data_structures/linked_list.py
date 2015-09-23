@@ -8,17 +8,37 @@ class Node(object):
 
 
 class LinkedList(object):
-    def __init__(self, values=None, head=None):
-        self.head = head
+    def __init__(self, iterable=()):
+        self._current = None
+        self.head = None
         self.length = 0
+        for val in reversed(iterable):
+            self.insert(val)
 
     def __repr__(self):
-        pass
+        '''Print string representation of Linked List.'''
+        node = self.head
+        output = ''
+        for node in self:
+            output += '{!r}'.format(node.val)
+        return '({})'.format(output.rstrip(' ,'))
 
     def __len__(self):
-        pass
+        return self.length
 
     def __iter__(self):
+        if self.head is not None:
+            self._current = self.head
+        return self
+
+    def next(self):
+        if self._current is None:
+            raise StopIteration
+        node = self._current
+        self._current = self._current.next
+        return node
+
+    def insert(self):
         pass
 
     def size(self):
@@ -31,9 +51,6 @@ class LinkedList(object):
         pass
 
     def remove(self):
-        pass
-
-    def insert(self):
         pass
 
     def pop(self):
