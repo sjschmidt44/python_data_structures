@@ -1,12 +1,4 @@
-class Node(object):
-    def __init__(self, val, prev=None, next_=None):
-        self.val = val
-        self.prev = prev
-        self.next = next_
-
-    def __repr__(self):
-        '''Return string representation of Node.'''
-        return '{val}'.format(val=self.val)
+from node import Node
 
 
 class DoublyLinkedList(object):
