@@ -2,34 +2,42 @@ from node import Node
 
 
 class Stack():
-    '''First in, Last out. Aware of top of stack only.'''
     def __init__(self):
-        pass
+        self.top = None
+        self.size = 0
 
     def __repr__(self):
         return repr(self)
 
-    def __iter__(self):
-        if self.head is not None:
-            self._current = self.head
-        return self
+    def _size(self):
+        return self.size
 
-    def push(self, value):
+    def push(self, val):
         '''Add a value to the head of the stack.
             args:
-                value: The value to add to the stack'''
-
-        '''When push; set head in temp. assign new node to head.
-        head pointer to new node.'''
-        pass
+                val: The value to add to the stack'''
+        if self.top is None:
+            self.top = Node(val)
+        else:
+            temp = self.top
+            self.top = Node(val)
+            temp.next = self.top
+            self.top.prev = temp
+        self.size += 1
 
     def pop(self):
         '''Remove a value from head of stack and return.'''
+        try:
+            temp = self.top
+            self.top = temp.prev
+            temp.prev = None
+            self.top.next = None
+            self.size -= 1
+            return temp.val
 
-        '''When Pop; '''
-
-        pass
+        except IndexError:
+            return 'The stack is empty.'
 
     def peek(self):
         '''Returns a value from the head of the stack.'''
-        pass
+        return self.top.val
