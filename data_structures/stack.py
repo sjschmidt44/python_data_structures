@@ -7,7 +7,8 @@ class Stack():
         self.size = 0
 
     def __repr__(self):
-        return repr(self)
+        return 'The stack has {num} Nodes, and {top} is at the top'.format(
+            num=self.size, top=self.top)
 
     def _size(self):
         return self.size
